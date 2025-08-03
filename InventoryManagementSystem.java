@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Product class
 class Product {
     private int id;
     private String name;
@@ -14,8 +13,6 @@ class Product {
         this.quantity = quantity;
         this.price = price;
     }
-
-    // Getters & Setters
     public int getId() { return id; }
 
     public String getName() { return name; }
@@ -29,28 +26,23 @@ class Product {
     public void setPrice(double price) { this.price = price; }
 
     public void displayProduct() {
-        System.out.println("ID: " + id +
-                " | Name: " + name +
-                " | Quantity: " + quantity +
-                " | Price: " + price);
+        System.out.println("ID: " + id + " | Name: " + name +  " | Quantity: "+quantity +" | Price: " + price);
     }
 }
-
-// Inventory class
 class Inventory {
     private ArrayList<Product> products = new ArrayList<>();
 
     public void addProduct(Product product) {
         products.add(product);
-        System.out.println("✅ Product added successfully!");
+        System.out.println("Product added successfully!");
     }
 
     public void viewProducts() {
         if (products.isEmpty()) {
-            System.out.println("⚠ No products in inventory.");
+            System.out.println("No products in inventory.");
             return;
         }
-        System.out.println("📦 Inventory:");
+        System.out.println("Inventory:");
         for (Product p : products) {
             p.displayProduct();
         }
@@ -60,26 +52,26 @@ class Inventory {
         for (Product p : products) {
             if (p.getId() == id) {
                 p.setQuantity(newQuantity);
-                System.out.println("✅ Quantity updated.");
+                System.out.println("Quantity updated.");
                 return;
             }
         }
-        System.out.println("❌ Product not found.");
+        System.out.println("Product not found.");
     }
 
     public void deleteProduct(int id) {
         for (Product p : products) {
             if (p.getId() == id) {
                 products.remove(p);
-                System.out.println("🗑 Product deleted.");
+                System.out.println("Product deleted.");
                 return;
             }
         }
-        System.out.println("❌ Product not found.");
+        System.out.println("Product not found.");
     }
 }
 
-// Main class
+// 
 public class InventoryManagementSystem {
     public static void main(String[] args) {
         Inventory inventory = new Inventory();
@@ -99,7 +91,7 @@ public class InventoryManagementSystem {
                 case 1:
                     System.out.print("Enter Product ID: ");
                     int id = scanner.nextInt();
-                    scanner.nextLine(); // consume newline
+                    scanner.nextLine(); //newline
                     System.out.print("Enter Product Name: ");
                     String name = scanner.nextLine();
                     System.out.print("Enter Quantity: ");
@@ -125,12 +117,10 @@ public class InventoryManagementSystem {
                     inventory.deleteProduct(did);
                     break;
                 case 5:
-                    System.out.println("🚪 Exiting... Thank you!");
+                    System.out.println("Exiting... \n\nThank you!");
                     scanner.close();
                     return;
                 default:
-                    System.out.println("⚠ Invalid option. Try again.");
-            }
-        }
-    }
-}
+                    System.out.println("Invalid option. Try again.");
+            }}}}
+    
